@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Records Viewer</title>
+</head>
+<body>
+<h1>Records Viewer</h1>
+<table>
+    <thead>
+    <tr>
+        <th>Account Number</th>
+        <th>Transaction Amount</th>
+        <th>Description</th>
+        <th>Transaction Date</th>
+        <th>Transaction Time</th>
+        <th>Customer ID</th>
+    </tr>
+    </thead>
+    <tbody id="recordsTableBody"></tbody>
+</table>
+
+<script>
+    // Fetch records data from the API
+    fetch('/api/records/all')
+        .then(response => response.json())
+        .then(records => {
+            const recordsTableBody = document.getElementById('recordsTableBody');
+
+            records.forEach(record => {
+                const row = document.createElement('tr');
+
+                const accountNumberCell = document.createElement('td');
+                accountNumberCell.textContent = record.accountNumber;
+                row.appendChild(accountNumberCell);
+
+                const trxAmountCell = document.createElement('td');
+                trxAmountCell.textContent = record.trxAmount;
+                row.appendChild(trxAmountCell);
+
+                const descriptionCell = document.createElement('td');
+                descriptionCell.textContent = record.description;
+                row.appendChild(descriptionCell);
+
+                const trxDateCell = document.createElement('td');
+                trxDateCell.textContent = record.trxDate;
+                row.appendChild(trxDateCell);
+
+                const trxTimeCell = document.createElement('td');
+                trxTimeCell.textContent = record.trxTime;
+                row.appendChild(trxTimeCell);
+
+                const customerIdCell = document.createElement('td');
+                customerIdCell.textContent = record.customerId;
+                row.appendChild(customerIdCell);
+
+                recordsTableBody.appendChild(row);
+            });
+        })
+        .catch(error => console.error('Error:', error));
+</script>
+</body>
+</html>
