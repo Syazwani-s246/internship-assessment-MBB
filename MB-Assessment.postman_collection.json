@@ -1,0 +1,235 @@
+{
+	"info": {
+		"_postman_id": "7f15146b-8eee-4871-a6a8-89e5191ffb6f",
+		"name": "MB-Assessment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21372076"
+	},
+	"item": [
+		{
+			"name": "IMPORT DATA FROM TEXT FILE",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/Lenovo/Desktop/Maybank/assessment2.0/dataSource.txt"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8082/api/import",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"api",
+						"import"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "RETRIEVE ALL",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/api/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"api",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ADD NEW DATA",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"accountNumber\": 1234567899,\r\n        \"trxAmount\": 123.0,\r\n        \"description\": \"DUMMY DATA\",\r\n        \"trxDate\": \"2019-09-12\",\r\n        \"trxTime\": \"11:11:11\",\r\n        \"customerId\": 222\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/api/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"api",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE DATA, ID = 49",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/api/delete/49",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"api",
+						"delete",
+						"49"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UPDATE DESCRIPTION",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/api/update/5?description=FUND TRANSFER",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"api",
+						"update",
+						"5"
+					],
+					"query": [
+						{
+							"key": "description",
+							"value": "FUND TRANSFER"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SEARCH (OR)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/api/search?description=\"FUND TRANSFER\"&customerId=222&accountNumber=8872838283",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"api",
+						"search"
+					],
+					"query": [
+						{
+							"key": "description",
+							"value": "\"FUND TRANSFER\""
+						},
+						{
+							"key": "customerId",
+							"value": "222"
+						},
+						{
+							"key": "accountNumber",
+							"value": "8872838283"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SEARCH (AND)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/api/search?description=FUND%20TRANSFER&customerId=222&accountNumber=8872838283",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"api",
+						"search"
+					],
+					"query": [
+						{
+							"key": "description",
+							"value": "FUND%20TRANSFER"
+						},
+						{
+							"key": "customerId",
+							"value": "222"
+						},
+						{
+							"key": "accountNumber",
+							"value": "8872838283"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "BY PAGE",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/api/getByPage?page=0&size=10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"api",
+						"getByPage"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "size",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
