@@ -1,6 +1,6 @@
-# Internship Assessment - MBB
+# Internship Assessment
 
-This is my submission for the internship application at Maybank. The aim of this project is to develop a RESTful API using Spring Boot.
+This is my submission for the internship application. The aim of this project is to develop a RESTful API using Spring Boot.
 
 ## Technologies Used
 - Spring Boot
